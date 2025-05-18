@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-btn-primary: oklch(0% 0 0);
+    --color-btn-primary-hover: oklch(33.3% 0 0);
+    --color-btn-primary-active: oklch(0% 0 0);
+    --color-btn-primary-disabled: oklch(70.2% 0 0);
+
+    --color-btn-secondary: oklch(100% 0 0);
+    --color-btn-secondary-hover: oklch(96.8% 0 0);
+    --color-btn-secondary-active: oklch(87.8% 0 0);
+    --color-btn-secondary-disabled: oklch(86.4% 0 0);
+
+    --color-btn-danger: oklch(57.4% 0.282 25.42);
+    --color-btn-danger-hover: oklch(47.8% 0.236 25.42);
+    --color-btn-danger-active: oklch(41.7% 0.2 25.42);
+    --color-btn-danger-disabled: oklch(89.8% 0.088 25.42);
+
+    --color-btn-warning: oklch(69.2% 0.204 70);
+    --color-btn-warning-hover: oklch(63.1% 0.186 70);
+    --color-btn-warning-active: oklch(55.6% 0.158 70);
+    --color-btn-warning-disabled: oklch(92.1% 0.067 70);
+
+    --color-btn-info: oklch(94.7% 0 0);
+    --color-btn-info-hover: oklch(87.8% 0 0);
+    --color-btn-info-active: oklch(80.9% 0 0);
+    --color-btn-info-disabled: oklch(97.8% 0 0);
+
+    --color-light-bg-primary: oklch(100% 0 0);
+    --color-dark-bg-primary: oklch(0% 0 0);
+    --color-light-bg-secondary: oklch(94.7% 0 0);
+    --color-dark-bg-secondary: oklch(10.2% 0 0);
+
+    --color-text-primary: oklch(0% 0 0);
+    --color-text-secondary: oklch(100% 0 0);
+    --color-text-info: oklch(60% 0 0);
+
+    --icon-color-default: oklch(0% 0 0);
+    --icon-color-danger: oklch(57.4% 0.282 25.42);
+    --icon-color-filter: oklch(0% 0 0);
+
+    --color-input-bg: oklch(96.33% 0 0);
+
+    --color-sec-border: rgba(0, 0, 0, 0.2);
+  }
+
+  .dark {
+    --color-btn-primary: oklch(100% 0 0);
+    --color-btn-primary-hover: oklch(93.5% 0 0);
+    --color-btn-primary-active: oklch(100% 0 0);
+    --color-btn-primary-disabled: oklch(60.5% 0 0);
+
+    --color-btn-secondary: oklch(0% 0 0);
+    --color-btn-secondary-hover: oklch(10.2% 0 0);
+    --color-btn-secondary-active: oklch(20.2% 0 0);
+    --color-btn-secondary-disabled: oklch(30.2% 0 0);
+
+    --color-btn-danger: oklch(70.4% 0.252 30.42);
+    --color-btn-danger-hover: oklch(60.8% 0.216 30.42);
+    --color-btn-danger-active: oklch(51.7% 0.18 30.42);
+    --color-btn-danger-disabled: oklch(95.8% 0.048 30.42);
+
+    --color-btn-warning: oklch(80.2% 0.154 40);
+    --color-btn-warning-hover: oklch(74.1% 0.136 40);
+    --color-btn-warning-active: oklch(68.6% 0.12 40);
+    --color-btn-warning-disabled: oklch(98.2% 0.057 40);
+
+    --color-btn-info: oklch(90.7% 0 0);
+    --color-btn-info-hover: oklch(80.8% 0 0);
+    --color-btn-info-active: oklch(75.9% 0 0);
+    --color-btn-info-disabled: oklch(90.8% 0 0);
+
+    --color-light-bg-primary: oklch(5% 0 0);
+    --color-dark-bg-primary: oklch(0% 0 0);
+    --color-light-bg-secondary: oklch(6% 0 0);
+    --color-dark-bg-secondary: oklch(20.2% 0 0);
+
+    --color-text-primary: oklch(100% 0 0);
+    --color-text-secondary: oklch(0% 0 0);
+    --color-text-info: oklch(60% 0 0);
+
+    --icon-color-default: oklch(100% 0 0);
+    --icon-color-danger: oklch(85% 0.2 25.42);
+
+    --color-input-bg: oklch(90.33% 0 0);
+
+    --color-sec-border: rgba(255, 255, 255, 0.699);
+  }
+}
