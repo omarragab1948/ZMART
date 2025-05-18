@@ -42,6 +42,8 @@
     --icon-color-danger: oklch(57.4% 0.282 25.42);
     --icon-color-filter: oklch(0% 0 0);
 
+    --color-input-bg: oklch(96.33% 0 0);
+
     --color-sec-border: rgba(0, 0, 0, 0.2);
   }
 
@@ -82,6 +84,8 @@
 
     --icon-color-default: oklch(100% 0 0);
     --icon-color-danger: oklch(85% 0.2 25.42);
+
+    --color-input-bg: oklch(90.33% 0 0);
 
     --color-sec-border: rgba(255, 255, 255, 0.699);
   }
