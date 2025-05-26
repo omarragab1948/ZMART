@@ -20,16 +20,29 @@ const iconButtonVariant = cva(
         xl: "size-12",
       },
     },
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
   }
 );
 interface IProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof iconButtonVariant> {
   children: ReactNode;
+  className?: string;
 }
-export const IconButton = ({ children, variant, size, ...rest }: IProps) => (
+export const IconButton = ({
+  children,
+  variant,
+  className,
+  size,
+  ...rest
+}: IProps) => (
   <button
-    className={tailwindClassesMerge(iconButtonVariant({ variant, size }))}
+    className={tailwindClassesMerge(
+      iconButtonVariant({ variant, size, className })
+    )}
     {...rest}
   >
     {children}
