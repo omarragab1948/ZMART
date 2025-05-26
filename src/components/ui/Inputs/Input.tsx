@@ -10,11 +10,11 @@ const inputVariant = cva(
     variants: {
       size: {
         xl: "w-full max-w-[577px] h-[48px] text-base",
-        lg: "w-[460px] h-[48px] text-base",
-        md: "w-[350px] h-[48px] text-base",
-        sm: "w-[310px] h-[44px] text-sm",
-        xs: "w-[250px] h-[40px] text-sm",
-        xxs: "w-[120px] h-[36px] text-sm",
+        lg: "w-full max-w-[460px] h-[48px] text-base",
+        md: "w-full max-w-[350px] h-[48px] text-base",
+        sm: "w-full max-w-[310px] h-[44px] text-sm",
+        xs: "w-full max-w-[250px] h-[40px] text-sm",
+        xxs: "w-full max-w-[120px] h-[36px] text-sm",
       },
       fullWidth: {
         true: "w-full",
