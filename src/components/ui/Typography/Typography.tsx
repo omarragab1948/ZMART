@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ReactNode } from "react";
 import { ElementType, ComponentPropsWithoutRef } from "react";
 const typographyVariants = cva(
-  "font-primary leading-relaxed text-black dark:text-white",
+  "font-primary leading-relaxed text-black dark:text-white ",
   {
     variants: {
       variant: {
@@ -13,18 +13,18 @@ const typographyVariants = cva(
 
         // Strong headings (sections, pages, or hero)
         "heading-xl":
-          "text-[36px] sm:text-[44px] md:text-[52px] lg:text-[64px] font-bold", 
+          "text-[36px] sm:text-[44px] md:text-[52px] lg:text-[64px] font-bold",
         "heading-lg":
-          "text-[32px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold", 
+          "text-[32px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold",
         "heading-md":
           "text-[32px] sm:text-[34px] md:text-[36px] lg:text-[40px] font-bold",
         "heading-sm":
-          "text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px] font-semibold", 
+          "text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px] font-semibold",
 
         // Paragraph body text
-        body: "text-[14px] sm:text-[15px] md:text-[16px] lg:text-[16px] font-normal", 
+        body: "text-[14px] sm:text-[15px] md:text-[16px] lg:text-[16px] font-normal",
         "body-sm":
-          "text-[13px] sm:text-[14px] md:text-[14px] lg:text-[14px] font-normal", 
+          "text-[13px] sm:text-[14px] md:text-[14px] lg:text-[14px] font-normal",
 
         // Labels, buttons, or link text
         label:
@@ -54,17 +54,20 @@ type TypographyProps<T extends ElementType> = {
   children: ReactNode;
 } & VariantProps<typeof typographyVariants> &
   ComponentPropsWithoutRef<T>;
-const Typography = <T extends ElementType = "p">({
+const Typography = <T extends ElementType>({
   as,
   children,
   variant,
+  className,
   ...rest
 }: TypographyProps<T>) => {
   const Component = as || "p";
 
   return (
     <Component
-      className={tailwindClassesMerge(typographyVariants({ variant }))}
+      className={tailwindClassesMerge(
+        typographyVariants({ variant, className })
+      )}
       {...rest}
     >
       {children}
