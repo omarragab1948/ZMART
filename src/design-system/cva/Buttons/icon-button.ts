@@ -1,8 +1,6 @@
-import { cva, VariantProps } from "class-variance-authority";
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { tailwindClassesMerge } from "@/utils/tailwindClassesMerge";
+import { cva } from "class-variance-authority";
 
-const iconButtonVariant = cva(
+export const iconButtonVariant = cva(
   "cursor-pointer inline-flex justify-center items-center size-[24px] bg-transparent rounded-full transition-all duration-300 ease-in-out",
   {
     variants: {
@@ -25,26 +23,4 @@ const iconButtonVariant = cva(
       size: "md",
     },
   }
-);
-interface IProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof iconButtonVariant> {
-  children: ReactNode;
-  className?: string;
-}
-export const IconButton = ({
-  children,
-  variant,
-  className,
-  size,
-  ...rest
-}: IProps) => (
-  <button
-    className={tailwindClassesMerge(
-      iconButtonVariant({ variant, size, className })
-    )}
-    {...rest}
-  >
-    {children}
-  </button>
 );

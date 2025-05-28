@@ -1,8 +1,6 @@
-import { cva, VariantProps } from "class-variance-authority";
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { tailwindClassesMerge } from "@/utils/tailwindClassesMerge";
+import { cva } from "class-variance-authority";
 
-const colorButtonVariant = cva(
+export const colorButtonVariant = cva(
   "cursor-pointer inline-flex justify-center items-center rounded-full w-[37px] h-[37px] border border-[var(--color-sec-border)]",
   {
     variants: {
@@ -25,18 +23,4 @@ const colorButtonVariant = cva(
       variant: "primary",
     },
   }
-);
-
-interface IProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof colorButtonVariant> {
-  children?: ReactNode;
-}
-export const ColorButton = ({ variant, children, ...rest }: IProps) => (
-  <button
-    className={tailwindClassesMerge(colorButtonVariant({ variant }))}
-    {...rest}
-  >
-    {children}
-  </button>
 );

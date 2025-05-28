@@ -1,7 +1,10 @@
-import { IconButton } from "@/components/ui/Buttons/IconButton";
-import { SearchInput } from "@/components/ui/Inputs/Input";
-import Typography from "@/components/ui/Typography/Typography";
-import { CircleUser, Menu, Search, ShoppingCart } from "lucide-react";
+import { IconButton } from "@/design-system/components/Buttons/IconButton";
+import { SearchInput } from "@/design-system/components/Inputs/Input";
+import Typography from "@/design-system/components/Typography/Typography";
+import { FiSearch, FiShoppingCart } from "react-icons/fi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaRegUserCircle } from "react-icons/fa";
+
 import { Link } from "react-router";
 
 const Header = () => {
@@ -30,9 +33,9 @@ const Header = () => {
             className="block lg:hidden"
             aria-label="Open menu"
           >
-            <Menu />
+            <GiHamburgerMenu />
           </IconButton>
-          <Typography as="h1" variant="display" className="">
+          <Typography as="h1" variant="display">
             ZMART
           </Typography>
         </div>
@@ -60,13 +63,13 @@ const Header = () => {
             className="hidden md:block "
           />
           <IconButton className="block lg:hidden" aria-label="Search">
-            <Search />
+            <FiSearch />
           </IconButton>
           <IconButton aria-label="Shopping cart">
-            <ShoppingCart />
+            <FiShoppingCart />
           </IconButton>
           <IconButton aria-label="User account">
-            <CircleUser />
+            <FaRegUserCircle />
           </IconButton>
         </div>
       </div>

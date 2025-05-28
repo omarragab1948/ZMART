@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-playfair: "Playfair Display", serif;
+  --font-Roboto: "Roboto", "sans-serif";
 }
 @layer base {
   :root {
@@ -32,14 +32,12 @@
     --color-btn-info-active: oklch(80.9% 0 0);
     --color-btn-info-disabled: oklch(97.8% 0 0);
 
-    --color-light-bg-primary: oklch(100% 0 0);
-    --color-dark-bg-primary: oklch(0% 0 0);
-    --color-light-bg-secondary: oklch(94.7% 0 0);
-    --color-dark-bg-secondary: oklch(10.2% 0 0);
+    --color-bg-primary: oklch(100% 0 0);
 
     --color-text-primary: oklch(0% 0 0);
     --color-text-secondary: oklch(100% 0 0);
     --color-text-info: oklch(60% 0 0);
+    --color-text-discount: oklch(70% 0 0);
 
     --icon-color-default: oklch(0% 0 0);
     --icon-color-danger: oklch(57.4% 0.282 25.42);
@@ -48,6 +46,14 @@
     --color-input-bg: oklch(96.33% 0 0);
 
     --color-sec-border: rgba(0, 0, 0, 0.2);
+    --color-text-error: oklch(60% 0.3 25);
+    --color-border-error: oklch(60% 0.3 25);
+    --color-input-disabled-bg: oklch(90% 0 0);
+    --color-text-disabled: oklch(60% 0 0);
+    --color-border-disabled: rgba(0, 0, 0, 0.1);
+
+    --color-light-bg-disabled: oklch(95% 0 0);
+    --color-dark-bg-disabled: oklch(20% 0 0);
   }
 
   .dark {
@@ -76,14 +82,12 @@
     --color-btn-info-active: oklch(75.9% 0 0);
     --color-btn-info-disabled: oklch(90.8% 0 0);
 
-    --color-light-bg-primary: oklch(5% 0 0);
-    --color-dark-bg-primary: oklch(0% 0 0);
-    --color-light-bg-secondary: oklch(6% 0 0);
-    --color-dark-bg-secondary: oklch(20.2% 0 0);
+    --color-bg-primary: oklch(0% 0 0);
 
     --color-text-primary: oklch(100% 0 0);
     --color-text-secondary: oklch(0% 0 0);
     --color-text-info: oklch(60% 0 0);
+    --color-text-discount: oklch(80% 0 0);
 
     --icon-color-default: oklch(100% 0 0);
     --icon-color-danger: oklch(85% 0.2 25.42);
@@ -91,5 +95,13 @@
     --color-input-bg: oklch(90.33% 0 0);
 
     --color-sec-border: rgba(255, 255, 255, 0.699);
+    --color-text-error: oklch(80% 0.4 25);
+    --color-border-error: oklch(80% 0.4 25);
+    --color-input-disabled-bg: oklch(20% 0 0);
+    --color-text-disabled: oklch(50% 0 0);
+    --color-border-disabled: rgba(255, 255, 255, 0.2);
+
+    --color-light-bg-disabled: oklch(95% 0 0);
+    --color-dark-bg-disabled: oklch(20% 0 0);
   }
 }
