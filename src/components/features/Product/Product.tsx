@@ -11,6 +11,7 @@ import {
 } from "./ProductCard";
 import Badge from "@/design-system/components/Badges/Badge";
 import currency from "@/design-system/utils/currency";
+
 import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { IProdcut, IProducHandlers } from "./types";
