@@ -1,8 +1,6 @@
-import { cva, VariantProps } from "class-variance-authority";
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { tailwindClassesMerge } from "@/utils/tailwindClassesMerge";
+import { cva } from "class-variance-authority";
 
-const buttonVariant = cva(
+export const buttonVariant = cva(
   "rounded-full cursor-pointer inline-flex justify-center items-center group transition-all duration-300 ease-in-out",
   {
     variants: {
@@ -38,31 +36,3 @@ const buttonVariant = cva(
     },
   }
 );
-
-interface IProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariant> {
-  children?: ReactNode;
-}
-
-const Button = ({
-  children,
-  variant,
-  size,
-  fullWidth,
-  fitContent,
-  ...rest
-}: IProps) => {
-  return (
-    <button
-      className={tailwindClassesMerge(
-        buttonVariant({ variant, fullWidth, fitContent, size })
-      )}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-};
-
-export default Button;
