@@ -1,43 +1,13 @@
-import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { Check, ChevronDown } from "lucide-react";
+import { forwardRef, useEffect, useRef, useState } from "react";
+import { FaCheck, FaChevronDown } from "react-icons/fa";
+
 import { motion, AnimatePresence } from "motion/react";
-
 import clsx from "clsx";
-import { tailwindClassesMerge } from "@/utils/tailwindClassesMerge";
+import { tailwindClassesMerge } from "@/design-system/utils/tailwindClassesMerge";
+import { menu } from "@/design-system/cva/Inputs/menu";
+import { ISelectMenuProps } from "@/design-system/types/inputs/menu";
 
-const selectTrigger = cva(
-  "relative rounded-lg bg-[var(--color-input-bg)] py-3 px-4 cursor-pointer transition-all duration-300 ease-in-out focus:outline-none ring-1 ring-transparent focus:ring-black/20 dark:focus:ring-white focus:ring-offset-1",
-  {
-    variants: {
-      size: {
-        xl: "w-full max-w-[577px] h-[48px] text-base",
-        lg: "w-[460px] h-[48px] text-base",
-        md: "w-[350px] h-[48px] text-base",
-        sm: "w-[310px] h-[44px] text-sm",
-        xs: "w-[250px] h-[40px] text-sm",
-      },
-      status: {
-        error: "ring-red-500 text-red-500 placeholder:text-red-500",
-        disabled:
-          "cursor-not-allowed bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-300",
-      },
-    },
-    defaultVariants: {
-      size: "md",
-    },
-  }
-);
-
-interface IProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, "onChange">,
-    VariantProps<typeof selectTrigger> {
-  options: { id: string; title: string }[];
-  placeholder?: string;
-  disabled?: boolean;
-  onChange?: (value: string) => void;
-}
-export const SelectMenu = forwardRef<HTMLDivElement, IProps>(
+export const SelectMenu = forwardRef<HTMLDivElement, ISelectMenuProps>(
   (
     {
       options,
@@ -81,7 +51,7 @@ export const SelectMenu = forwardRef<HTMLDivElement, IProps>(
 
     return (
       <div
-        className={tailwindClassesMerge(selectTrigger({ size, status }))}
+        className={tailwindClassesMerge(menu({ size, status }))}
         ref={containerRef}
         {...rest}
       >
@@ -94,7 +64,7 @@ export const SelectMenu = forwardRef<HTMLDivElement, IProps>(
           ref={ref}
         >
           <span>{selectedOption?.title || placeholder}</span>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4" />
+          <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4" />
         </div>
 
         {options?.length > 0 && (
@@ -120,7 +90,7 @@ export const SelectMenu = forwardRef<HTMLDivElement, IProps>(
                   >
                     <span>{option.title}</span>
                     {option.id === selectedValue && (
-                      <Check className="h-4 w-4" />
+                      <FaCheck className="h-4 w-4" />
                     )}
                   </li>
                 ))}

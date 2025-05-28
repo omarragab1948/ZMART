@@ -1,52 +1,12 @@
-import { tailwindClassesMerge } from "@/utils/tailwindClassesMerge";
-import { cva, VariantProps } from "class-variance-authority";
-import { forwardRef, InputHTMLAttributes, useState } from "react";
-import { Check, Eye, EyeClosed } from "lucide-react";
+import { tailwindClassesMerge } from "@/design-system/utils/tailwindClassesMerge";
+import { forwardRef, useState } from "react";
+import { LuEyeClosed } from "react-icons/lu";
 import { motion } from "motion/react";
+import { inputVariant } from "@/design-system/cva/Inputs/input";
+import { IInputProps } from "@/design-system/types/inputs/input";
+import { FaCheck, FaEye } from "react-icons/fa";
 
-const inputVariant = cva(
-  "rounded-full bg-[var(--color-input-bg)] block py-3 px-4 transition-all duration-300 ease-in-out focus:outline-none focus:ring-1 focus:ring-black/20 dark:focus:ring-white focus:ring-offset-1",
-  {
-    variants: {
-      size: {
-        xl: "w-full max-w-[577px] h-[48px] text-base",
-        lg: "w-full max-w-[460px] h-[48px] text-base",
-        md: "w-full max-w-[350px] h-[48px] text-base",
-        sm: "w-full max-w-[310px] h-[44px] text-sm",
-        xs: "w-full max-w-[250px] h-[40px] text-sm",
-        xxs: "w-full max-w-[120px] h-[36px] text-sm",
-      },
-      fullWidth: {
-        true: "w-full",
-      },
-      status: {
-        error:
-          "ring-1 ring-red-500 focus:ring-red-500 placeholder:text-red-500",
-        disabled: `
-          cursor-not-allowed
-          bg-gray-100 dark:bg-gray-700
-          text-gray-500 dark:text-gray-300
-          ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0
-          disabled:bg-slate-50 dark:disabled:bg-gray-700
-          disabled:text-slate-500 dark:disabled:text-gray-400
-          disabled:border-slate-200 disabled:shadow-none
-        `,
-      },
-    },
-    defaultVariants: {
-      size: "md",
-      fullWidth: false,
-    },
-  }
-);
-
-interface IProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "size">,
-    VariantProps<typeof inputVariant> {
-  status?: "error" | "disabled";
-}
-
-const Input = forwardRef<HTMLInputElement, IProps>(
+const Input = forwardRef<HTMLInputElement, IInputProps>(
   ({ size, type, fullWidth, className, status, ...rest }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
     const isDisabled = status === "disabled";
@@ -77,7 +37,7 @@ const Input = forwardRef<HTMLInputElement, IProps>(
               {...rest}
             />
             <span className="absolute left-0 top-0 w-5 h-5 rounded-sm bg-transparent dark:text-white  peer-checked:flex items-center justify-center hidden">
-              <Check size={16} />
+              <FaCheck />
             </span>
           </label>
         );
@@ -102,7 +62,7 @@ const Input = forwardRef<HTMLInputElement, IProps>(
               aria-label={showPassword ? "Hide password" : "Show password"}
               aria-pressed={showPassword}
             >
-              {showPassword ? <EyeClosed size={18} /> : <Eye size={18} />}
+              {showPassword ? <LuEyeClosed /> : <FaEye />}
             </motion.button>
           </div>
         );
@@ -119,31 +79,31 @@ const Input = forwardRef<HTMLInputElement, IProps>(
     }
   }
 );
-export const EmailInput = forwardRef<HTMLInputElement, IProps>((props, ref) => (
-  <Input ref={ref} type="text" {...props} />
-));
+export const EmailInput = forwardRef<HTMLInputElement, IInputProps>(
+  (props, ref) => <Input ref={ref} type="text" {...props} />
+);
 
-export const PasswordInput = forwardRef<HTMLInputElement, IProps>(
+export const PasswordInput = forwardRef<HTMLInputElement, IInputProps>(
   (props, ref) => <Input ref={ref} type="password" {...props} />
 );
 
-export const NumberInput = forwardRef<HTMLInputElement, IProps>(
+export const NumberInput = forwardRef<HTMLInputElement, IInputProps>(
   (props, ref) => (
     <Input ref={ref} type="number" inputMode="numeric" {...props} />
   )
 );
 
-export const TextInput = forwardRef<HTMLInputElement, IProps>((props, ref) => (
-  <Input ref={ref} type="text" {...props} />
-));
+export const TextInput = forwardRef<HTMLInputElement, IInputProps>(
+  (props, ref) => <Input ref={ref} type="text" {...props} />
+);
 
-export const SearchInput = forwardRef<HTMLInputElement, IProps>(
+export const SearchInput = forwardRef<HTMLInputElement, IInputProps>(
   (props, ref) => <Input ref={ref} type="search" {...props} />
 );
 
 export const CheckboxInput = forwardRef<
   HTMLInputElement,
-  Omit<IProps, "value"> & {
+  Omit<IInputProps, "value"> & {
     checked?: boolean;
   }
 >((props, ref) => <Input ref={ref} type="checkbox" {...props} />);
