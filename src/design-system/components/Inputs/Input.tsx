@@ -1,10 +1,11 @@
 import { tailwindClassesMerge } from "@/design-system/utils/tailwindClassesMerge";
-import { forwardRef, useState } from "react";
+import { forwardRef, ReactNode, useState } from "react";
 import { LuEyeClosed } from "react-icons/lu";
 import { motion } from "motion/react";
 import { inputVariant } from "@/design-system/cva/Inputs/input";
 import { IInputProps } from "@/design-system/types/inputs/input";
 import { FaCheck, FaEye } from "react-icons/fa";
+import Typography from "../Typography/Typography";
 
 const Input = forwardRef<HTMLInputElement, IInputProps>(
   ({ size, type, fullWidth, className, status, ...rest }, ref) => {
@@ -16,10 +17,9 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
         : "";
 
     const baseClasses = tailwindClassesMerge(
-      inputVariant({ size, fullWidth, status }),
+      inputVariant({ size, fullWidth, status, className }),
       extraTypeClasses,
-      isDisabled ? "focus:ring-0 ring-0 focus:outline-none" : "",
-      className
+      isDisabled ? "focus:ring-0 ring-0 focus:outline-none" : ""
     );
     const checkboxClasses =
       "w-5 h-5 accent-black dark:accent-white transition-colors duration-200 ring-1 ring-black dark:ring-white appearance-none focus:ring-blue-500 checked:ring-blue-500 focus:border-none focus:outline-none rounded-sm peer";
@@ -100,7 +100,25 @@ export const TextInput = forwardRef<HTMLInputElement, IInputProps>(
 export const SearchInput = forwardRef<HTMLInputElement, IInputProps>(
   (props, ref) => <Input ref={ref} type="search" {...props} />
 );
+interface PromoCodeInputProps extends IInputProps {
+  icon?: ReactNode;
+}
 
+export const PromoCodeInput = forwardRef<HTMLInputElement, PromoCodeInputProps>(
+  ({ icon, ...props }, ref) => (
+    <div className="relative w-full">
+      <Input ref={ref} type="text" className="pl-10 w-full"  size="lg" {...props} />
+      {icon && (
+        <Typography
+          as="span"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+        >
+          {icon}
+        </Typography>
+      )}
+    </div>
+  )
+);
 export const CheckboxInput = forwardRef<
   HTMLInputElement,
   Omit<IInputProps, "value"> & {

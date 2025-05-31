@@ -60,15 +60,18 @@ const Header = () => {
           <SearchInput
             size="xl"
             placeholder="Search..."
-            className="hidden md:block "
+            className="hidden md:block"
           />
-          <IconButton className="block lg:hidden" aria-label="Search">
+          <IconButton
+            className="block md:hidden text-2xl"
+            aria-label="Search"
+          >
             <FiSearch />
           </IconButton>
-          <IconButton aria-label="Shopping cart">
+          <IconButton aria-label="Shopping cart" className="text-3xl">
             <FiShoppingCart />
           </IconButton>
-          <IconButton aria-label="User account">
+          <IconButton aria-label="User account" className="text-3xl">
             <FaRegUserCircle />
           </IconButton>
         </div>

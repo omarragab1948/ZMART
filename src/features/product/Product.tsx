@@ -10,33 +10,22 @@ import {
   ProductCardTitle,
 } from "./ProductCard";
 import Badge from "@/design-system/components/Badges/Badge";
-
-import { FaRegHeart } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
-import { IProdcut, IProducHandlers } from "./types";
+import { ProductProps } from "./types";
 import currency from "@/utils/currency";
 
-const handlers: IProducHandlers[] = [
-  {
-    icon: <FaRegHeart />,
-    handler: () => {},
-  },
-  {
-    icon: <FiShoppingCart />,
-    handler: () => {},
-  },
-];
-const Product = ({
-  title,
-  image,
-  price,
-  discount,
-  rating,
-  discountPercent,
-  link,
-}: IProdcut) => {
+const Product = ({ product, handlers }: ProductProps) => {
+  const enhancedHandlers = handlers?.map(({ icon, handler }) => ({
+    icon,
+    handler: (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      event.stopPropagation();
+      handler(product);
+    },
+  }));
+  const { link, title, image, rating, price, discount, discountPercent } =
+    product;
   return (
-    <ProductCard link={link} handlers={handlers}>
+    <ProductCard link={link} handlers={enhancedHandlers}>
       <ProductCardImage src={image} alt={title} />
       <ProductCardTitle>{title}</ProductCardTitle>
       <ProductCardRatingSection>

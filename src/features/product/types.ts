@@ -1,7 +1,7 @@
-import {  ReactNode } from "react";
+import { ReactNode } from "react";
 
 export interface IProdcut {
-  id: number;
+  id: string;
   title: string;
   image: string;
   price: number;
@@ -12,5 +12,9 @@ export interface IProdcut {
 }
 export interface IProducHandlers {
   icon: ReactNode;
-  handler: () => void;
+  handler: (product: IProdcut) => void;
 }
+export type ProductProps = {
+  product: IProdcut;
+  handlers: IProducHandlers[];
+};
