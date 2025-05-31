@@ -17,7 +17,7 @@ export interface ICardProps {
   link?: string;
   handlers?: {
     icon: ReactNode;
-    handler: () => void;
+    handler: (event: React.MouseEvent<HTMLButtonElement>) => void;
   }[];
 }
 interface IRatingProps {
@@ -27,7 +27,7 @@ interface IRatingProps {
 export const ProductCard = ({ children, link, handlers }: ICardProps) => {
   return (
     <Card
-      size="sm"
+      type="product"
       className="gap-2 group cursor-pointer  relative overflow-hidden"
     >
       <Link to={link || ""}>
@@ -47,7 +47,7 @@ export const ProductCard = ({ children, link, handlers }: ICardProps) => {
     </Card>
   );
 };
-export const ProductCardTitle = ({ children,className }: IProps) => {
+export const ProductCardTitle = ({ children, className }: IProps) => {
   return (
     <Typography as="p" variant="title" className={className}>
       {children}
@@ -61,7 +61,7 @@ export const ProductCardPrice = ({ children, className }: IProps) => {
     </Typography>
   );
 };
-export const ProductCardDiscount = ({ children,className }: IProps) => {
+export const ProductCardDiscount = ({ children, className }: IProps) => {
   return (
     <Typography as="span" variant="discount" className={className}>
       {children}

@@ -5,5 +5,6 @@ import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 export type ITypographyProps<T extends ElementType> = {
   as?: T;
   children: ReactNode;
+  className? :string
 } & VariantProps<typeof typographyVariants> &
   ComponentPropsWithoutRef<T>;

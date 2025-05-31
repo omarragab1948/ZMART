@@ -8,12 +8,13 @@ const Button = ({
   size,
   fullWidth,
   fitContent,
+  className,
   ...rest
 }: IButtonProps) => {
   return (
     <button
       className={tailwindClassesMerge(
-        buttonVariant({ variant, fullWidth, fitContent, size })
+        buttonVariant({ variant, fullWidth, fitContent, size, className })
       )}
       {...rest}
     >

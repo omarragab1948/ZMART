@@ -5,15 +5,16 @@ import { tailwindClassesMerge } from "@/design-system/utils/tailwindClassesMerge
 const Card = ({
   variant,
   className,
-  size,
   layout,
   children,
+  type,
   ...res
 }: ICardProps) => {
   return (
     <div
       className={tailwindClassesMerge(
-        cardVariants({ variant, className, size, layout })
+        cardVariants({ variant, layout, type }), 
+        className 
       )}
       {...res}
     >
