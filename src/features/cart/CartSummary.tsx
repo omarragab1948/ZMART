@@ -1,4 +1,3 @@
-import Divider from "@/components/common/Divider/Divider";
 import Button from "@/design-system/components/Buttons/Button";
 import Card from "@/design-system/components/Card/Card";
 import { PromoCodeInput } from "@/design-system/components/Inputs/Input";
@@ -8,7 +7,8 @@ import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaTag } from "react-icons/fa";
-import { CartSummaryProps } from "./cart";
+import { CartSummaryProps } from "./types";
+import Divider from "@/components/shared/Divider/Divider";
 
 const CartSummary = ({
   subtotal,

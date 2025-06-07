@@ -1,7 +1,8 @@
 import { FiPlus, FiMinus } from "react-icons/fi";
-import { IconButton } from "../../../design-system/components/Buttons/IconButton";
-import Typography from "../../../design-system/components/Typography/Typography";
-import { CartCounterProps } from "./cart";
+
+import { CartCounterProps } from "./types";
+import { IconButton } from "@/design-system/components/Buttons/IconButton";
+import Typography from "@/design-system/components/Typography/Typography";
 
 const CartCounter = ({ count, onIncrement, onDecrement }: CartCounterProps) => {
   return (

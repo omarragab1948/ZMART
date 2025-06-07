@@ -16,5 +16,5 @@ export interface IProducHandlers {
 }
 export type ProductProps = {
   product: IProdcut;
-  handlers: IProducHandlers[];
+  handlers?: IProducHandlers[];
 };

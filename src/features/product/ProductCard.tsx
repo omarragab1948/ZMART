@@ -28,7 +28,7 @@ export const ProductCard = ({ children, link, handlers }: ICardProps) => {
   return (
     <Card
       type="product"
-      className="gap-2 group cursor-pointer  relative overflow-hidden"
+      className="gap-2 group cursor-pointer relative overflow-hidden"
     >
       <Link to={link || ""}>
         {children}
@@ -87,7 +87,7 @@ export const ProductCardImage = ({
   alt = "Product Image",
 }: IPropsImage) => {
   return (
-    <div className="group bg-[#F2F0F1] rounded-xl w-full h-[298px] flex justify-center items-center overflow-hidden relative">
+    <div className="group bg-[#F2F0F1] rounded-xl w-full aspect-square flex justify-center items-center overflow-hidden relative">
       <img
         src={src}
         alt={alt}

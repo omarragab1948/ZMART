@@ -24,7 +24,7 @@ export const inputVariant = cva(
         xxs: "w-full max-w-[120px] h-[36px] text-sm",
       },
       fullWidth: {
-        true: "w-full",
+        true: "w-full max-w-full",
       },
       status: {
         error: `

@@ -12,7 +12,7 @@ export const cardVariants = cva("duration-300  bg-[var(--color-bg-primary)]", {
       noshadow: "",
     },
     type: {
-      product: "w-[300px]",
+      product: "w-[296px]",
       cart: "w-full sm:w-full lg:w-full",
       checkout: "w-full md:w-[550px] lg:w-[600px] xl:w-[700px]",
       checkoutSummary: "w-full md:w-[550px] lg:w-[350px] xl:w-[500px]",

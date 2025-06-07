@@ -2,7 +2,7 @@ import Card from "@/design-system/components/Card/Card";
 import Typography from "@/design-system/components/Typography/Typography";
 import { ReactNode } from "react";
 import { Link } from "react-router";
-import { ICartItemProps } from "./cart";
+import { ICartItemProps } from "./types";
 
 export const CartItem = ({ children, link }: ICartItemProps) => {
   const childrenArray = Array.isArray(children) ? children : [children];
