@@ -107,7 +107,13 @@ interface PromoCodeInputProps extends IInputProps {
 export const PromoCodeInput = forwardRef<HTMLInputElement, PromoCodeInputProps>(
   ({ icon, ...props }, ref) => (
     <div className="relative w-full">
-      <Input ref={ref} type="text" className="pl-10 w-full"  size="lg" {...props} />
+      <Input
+        ref={ref}
+        type="text"
+        className="pl-10 w-full"
+        size="lg"
+        {...props}
+      />
       {icon && (
         <Typography
           as="span"

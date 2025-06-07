@@ -11,10 +11,10 @@ import CartSummary from "./CartSummary";
 import { Fragment, useState } from "react";
 import CartCounter from "./CartCounter";
 import currency from "@/utils/currency";
-import Divider from "@/components/common/Divider/Divider";
 import { IconButton } from "@/design-system/components/Buttons/IconButton";
 import Card from "@/design-system/components/Card/Card";
 import { Order } from "./types";
+import Divider from "@/components/shared/Divider/Divider";
 
 const Cart = ({ order }: { order: Order }) => {
   const [items, setItems] = useState(order.items);
