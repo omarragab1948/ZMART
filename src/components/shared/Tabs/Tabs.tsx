@@ -1,9 +1,9 @@
-// components/Tabs.tsx
 import { createContext, useContext, useState, ReactNode } from "react";
 
 type TabsContextType = {
   activeTab: string;
   setActiveTab: (value: string) => void;
+  direction: "horizontal" | "vertical";
 };
 
 const TabsContext = createContext<TabsContextType | undefined>(undefined);
@@ -19,21 +19,37 @@ const useTabs = () => {
 type TabsProps = {
   children: ReactNode;
   defaultValue: string;
+  direction?: "horizontal" | "vertical";
 };
 
-const Tabs = ({ children, defaultValue }: TabsProps) => {
+const Tabs = ({
+  children,
+  defaultValue,
+  direction = "horizontal",
+}: TabsProps) => {
   const [activeTab, setActiveTab] = useState(defaultValue);
 
   return (
-    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
-      <div className="w-full">{children}</div>
+    <TabsContext.Provider value={{ activeTab, setActiveTab, direction }}>
+      <div
+        className={`w-full flex ${
+          direction === "vertical" ? "flex-row" : "flex-col"
+        }`}
+      >
+        {children}
+      </div>
     </TabsContext.Provider>
   );
 };
 
 const List = ({ children }: { children: ReactNode }) => {
+  const { direction } = useTabs();
+  const layout =
+    direction === "vertical" ? "flex-col border-r" : "flex-row border-b";
   return (
-    <div className="flex gap-2 border-b border-[var(--color-btn-info)] overflow-auto">
+    <div
+      className={`flex gap-2 overflow-auto border-[var(--color-btn-info)] ${layout} shrink-0`}
+    >
       {children}
     </div>
   );
@@ -46,14 +62,22 @@ const Trigger = ({
   children: ReactNode;
   value: string;
 }) => {
-  const { activeTab, setActiveTab } = useTabs();
+  const { activeTab, setActiveTab, direction } = useTabs();
   const isActive = activeTab === value;
+
+  const baseClasses = "px-4 py-2 cursor-pointer text-left flex justify-center";
+  const activeClass =
+    direction === "vertical"
+      ? "border-r-4 border-black font-bold"
+      : "border-b-2 border-black font-bold";
+  const inactiveClass = "text-[var(--color-text-info)]";
+  const widthClass = direction === "horizontal" ? "w-1/3" : "";
 
   return (
     <button
       onClick={() => setActiveTab(value)}
-      className={`px-4 py-2  cursor-pointer w-1/3 ${
-        isActive ? "border-black border-b ]" : "text-[var(--color-text-info)]"
+      className={`${baseClasses} ${widthClass} ${
+        isActive ? activeClass : inactiveClass
       }`}
     >
       {children}
@@ -69,10 +93,11 @@ const Content = ({
   value: string;
 }) => {
   const { activeTab } = useTabs();
-  return activeTab === value ? <div className="mt-4">{children}</div> : null;
+  return activeTab === value ? (
+    <div className="p-4 w-full">{children}</div>
+  ) : null;
 };
 
-// Attach compound components
 Tabs.List = List;
 Tabs.Trigger = Trigger;
 Tabs.Content = Content;
