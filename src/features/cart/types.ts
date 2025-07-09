@@ -23,6 +23,8 @@ export interface CartCounterProps {
   onIncrement: () => void;
   onDecrement: () => void;
   className?: string;
+  fullWidth?: boolean;
+  size?: string;
 }
 export interface CartSummaryProps {
   subtotal: number;
@@ -31,6 +33,6 @@ export interface CartSummaryProps {
   total: number;
 }
 export interface ICartItemProps {
-  children: ReactNode; 
+  children: ReactNode;
   link?: string;
 }

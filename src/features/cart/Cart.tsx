@@ -38,10 +38,10 @@ const Cart = ({ order }: { order: Order }) => {
   };
 
   return (
-    <div className="py-4 px-5 md:px-14 lg:px-24  flex flex-col lg:flex-row items-center lg:items-start justify-around gap-3 xl:gap-0">
+    <div className="py-4 px-5 md:px-4 lg:px-2 flex flex-col md:flex-row items-center md:items-start justify-around gap-3 xl:gap-0">
       <Card
         variant="bordered"
-        className=" p-6 gap-8 rounded-3xl"
+        className="p-6 gap-8 rounded-3xl"
         type="checkout"
       >
         {items.map((item, i) => (
