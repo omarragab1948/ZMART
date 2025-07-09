@@ -6,11 +6,12 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegUserCircle } from "react-icons/fa";
 
 import { Link } from "react-router";
+import Container from "@/components/shared/Container/Container";
 
-const Header = () => {
+const Header = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
   return (
     <header>
-      <div className="h-9  flex items-center justify-center text-center gap-1 bg-black dark:bg-white">
+      <div className="h-9 flex items-center justify-center text-center gap-1 bg-black dark:bg-white">
         <Typography
           as="h3"
           variant="body-sm"
@@ -26,56 +27,59 @@ const Header = () => {
           <Link to="">Sign Up Now</Link>
         </Typography>
       </div>
-      <div className="flex px-6  md:px-10 xl:px-24 py-6">
-        <div className="flex items-center w-2/5 lg:w-1/6">
-          <IconButton
-            size="xl"
-            className="block lg:hidden"
-            aria-label="Open menu"
+      <Container>
+        <div className="flex py-6">
+          <div className="flex items-center w-2/5 lg:w-1/6">
+            <IconButton
+              size="xl"
+              className="block lg:hidden"
+              aria-label="Open menu"
+              onClick={onOpenSidebar}
+            >
+              <GiHamburgerMenu />
+            </IconButton>
+            <Typography as="h1" variant="display">
+              ZMART
+            </Typography>
+          </div>
+          <nav
+            aria-label="Main navigation"
+            className="hidden lg:flex items-center justify-around  w-1/3 gap-6"
           >
-            <GiHamburgerMenu />
-          </IconButton>
-          <Typography as="h1" variant="display">
-            ZMART
-          </Typography>
+            <Typography as="h1" variant="body">
+              <Link to="/test">Sale</Link>
+            </Typography>
+            <Typography as="h1" variant="body">
+              <Link to="/test">New Arrival</Link>
+            </Typography>
+            <Typography as="h1" variant="body">
+              <Link to="/test">Men</Link>
+            </Typography>
+            <Typography as="h1" variant="body">
+              <Link to="/test">Women</Link>
+            </Typography>
+          </nav>
+          <div className="flex items-center justify-end  space-x-3 w-3/5">
+            <SearchInput
+              size="xl"
+              placeholder="Search..."
+              className="hidden md:block"
+            />
+            <IconButton
+              className="block md:hidden text-2xl"
+              aria-label="Search"
+            >
+              <FiSearch />
+            </IconButton>
+            <IconButton aria-label="Shopping cart" className="text-3xl">
+              <FiShoppingCart />
+            </IconButton>
+            <IconButton aria-label="User account" className="text-3xl">
+              <FaRegUserCircle />
+            </IconButton>
+          </div>
         </div>
-        <nav
-          aria-label="Main navigation"
-          className="hidden lg:flex items-center justify-around  w-1/3 gap-6"
-        >
-          <Typography as="h1" variant="body">
-            <Link to="/test">Sale</Link>
-          </Typography>
-          <Typography as="h1" variant="body">
-            <Link to="/test">New Arrival</Link>
-          </Typography>
-          <Typography as="h1" variant="body">
-            <Link to="/test">Men</Link>
-          </Typography>
-          <Typography as="h1" variant="body">
-            <Link to="/test">Women</Link>
-          </Typography>
-        </nav>
-        <div className="flex items-center justify-end  space-x-3 w-3/5">
-          <SearchInput
-            size="xl"
-            placeholder="Search..."
-            className="hidden md:block"
-          />
-          <IconButton
-            className="block md:hidden text-2xl"
-            aria-label="Search"
-          >
-            <FiSearch />
-          </IconButton>
-          <IconButton aria-label="Shopping cart" className="text-3xl">
-            <FiShoppingCart />
-          </IconButton>
-          <IconButton aria-label="User account" className="text-3xl">
-            <FaRegUserCircle />
-          </IconButton>
-        </div>
-      </div>
+      </Container>
     </header>
   );
 };
