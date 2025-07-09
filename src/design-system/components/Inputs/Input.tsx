@@ -22,7 +22,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
       isDisabled ? "focus:ring-0 ring-0 focus:outline-none" : ""
     );
     const checkboxClasses =
-      "w-5 h-5 accent-black dark:accent-white transition-colors duration-200 ring-1 ring-black dark:ring-white appearance-none focus:ring-blue-500 checked:ring-blue-500 focus:border-none focus:outline-none rounded-sm peer";
+      "w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 accent-black dark:accent-white transition-colors duration-200 ring-1 ring-black dark:ring-white appearance-none focus:ring-blue-500 checked:ring-blue-500 focus:border-none focus:outline-none rounded-sm peer";
     switch (type) {
       case "checkbox":
         return (
@@ -36,7 +36,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
               ref={ref}
               {...rest}
             />
-            <span className="absolute left-0 top-0 w-5 h-5 rounded-sm bg-transparent dark:text-white  peer-checked:flex items-center justify-center hidden">
+            <span className="absolute left-0 top-0 w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 rounded-sm bg-transparent dark:text-white  peer-checked:flex items-center justify-center hidden">
               <FaCheck />
             </span>
           </label>

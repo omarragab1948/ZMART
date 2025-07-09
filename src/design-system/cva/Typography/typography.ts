@@ -29,7 +29,7 @@ export const typographyVariants = cva(
         price: `text-[20px] sm:text-[21px] md:text-[22px] lg:text-[24px] font-bold text-[var(--color-text-primary)]`,
 
         // Discount (strikethrough)
-        discount: `text-[20px] sm:text-[21px] md:text-[22px] lg:text-[24px]   font-bold line-through text-black/40 dark:text-white/70`,
+        discount: `text-[20px] sm:text-[21px] md:text-[22px] lg:text-[24px]  font-bold line-through text-black/40 dark:text-white/70`,
 
         // Caption or muted notes
         caption: `text-xs lg:text-sm text-[var(--color-text-primary)]/60 dark:text-[var(--color-text-primary)]/60 font-normal`,
