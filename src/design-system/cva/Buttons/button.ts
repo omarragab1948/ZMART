@@ -16,15 +16,22 @@ export const buttonVariant = cva(
         info: "bg-[var(--color-btn-info)] text-[var(--color-text-info)] font-normal  hover:bg-[var(--color-btn-info-hover)] active:bg-[var(--color-btn-info-active)] disabled:bg-[var(--color-btn-info-disabled)]",
       },
       size: {
-        xl: "w-[460px] h-[60px] py-4 px-14 text-base",
-        lg: "w-[400px] h-[54px] py-4 px-14 text-base",
-        md: "w-[350px] h-[48px] py-4 px-12 text-base",
-        sm: "w-[310px] h-[48px] py-4 px-10 text-sm",
-        xs: "w-[250px] h-[44px] py-3 px-8 text-sm",
-        xxs: "w-[120px] h-[44px] py-2 px-6 text-sm",
+        xl: "w-[460px] h-[60px]  text-base",
+        lg: "w-[400px] h-[54px] text-base",
+        md: "w-[350px] h-[48px] text-base",
+        sm: "w-[310px] h-[48px] text-sm",
+        xs: "w-[250px] h-[44px] text-sm",
+        xxs: "w-[116px] h-[44px] text-sm",
+        responsive: `
+              w-[116px] h-[44px] text-sm
+              sm:w-[250px] sm:h-[44px] sm:text-sm
+              md:w-[350px] md:h-[48px] md:text-base
+              lg:w-[400px] lg:h-[54px] lg:text-base
+              xl:w-[460px] xl:h-[60px] xl:text-base
+          `,
       },
       fullWidth: {
-        true: "w-full",
+        true: "!w-full",
       },
       fitContent: {
         true: "w-fit",
@@ -32,7 +39,8 @@ export const buttonVariant = cva(
     },
     defaultVariants: {
       variant: "primary",
-      size: "md",
+      size: "responsive",
+      fullWidth: false,
     },
   }
 );

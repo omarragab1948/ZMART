@@ -5,16 +5,23 @@ import { IButtonProps } from "@/design-system/types/buttons/button";
 const Button = ({
   children,
   variant,
-  size,
   fullWidth,
   fitContent,
   className,
+  size,
   ...rest
 }: IButtonProps) => {
+  
   return (
     <button
       className={tailwindClassesMerge(
-        buttonVariant({ variant, fullWidth, fitContent, size, className })
+        buttonVariant({
+          variant,
+          size,
+          fullWidth,
+          fitContent,
+          className,
+        })
       )}
       {...rest}
     >
