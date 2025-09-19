@@ -22,21 +22,21 @@
 ## 🖥️ Screens
 
 ### 🏠 Home  
-![Home Screenshot](./public/screenshots/home.png)
+![Home Screenshot](screenshots/home.PNG)
 
 ---
 
 ### 📂 Categories  
-![Categories Screenshot](screenshots/categories.png)
+![Categories Screenshot](screenshots/categories.PNG)
 
 ---
 
 ### 📦 Product Details  
-![Product Details Screenshot](screenshots/product-details.png)
+![Product Details Screenshot](screenshots/product-details.PNG)
 
 ---
 
 ### 🛒 Cart  
-![Cart Screenshot](screenshots/cart.png)
+![Cart Screenshot](screenshots/cart.PNG)
 
 
